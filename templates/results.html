@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Ranking Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .resume-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .score {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .suggestions {
+            margin-top: 10px;
+            color: #666;
+        }
+        .suggestions ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .suggestions p {
+            color: #333;
+            font-style: italic;
+        }
+        .back-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 6px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Resume Match Results</h1>
+
+    {% for item in ranks %}
+    <div class="resume-card">
+        <h2>{{ item.filename }}</h2>
+        <p class="score">Match Score: {{ "%.2f"|format(item.score) }}%</p>
+        <div class="suggestions">
+            <h4>Suggestions for Improvement:</h4>
+            {% if item.suggestions %}
+                <ul>
+                    {% for suggestion in item.suggestions %}
+                        <li>{{ suggestion }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No major improvements needed. Great match!</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Back button -->
+    <a href="/" class="back-btn">Back to Upload</a>
+
+</body>
+</html>

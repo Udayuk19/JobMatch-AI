@@ -1,0 +1,4 @@
+Job Title: Software Developer
+Responsibilities: Design and develop software applications.
+Skills: Python, Flask, JavaScript.
+Experience: 2+ years of software development experience.
