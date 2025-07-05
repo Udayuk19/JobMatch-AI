@@ -19,3 +19,13 @@ An intelligent resume matcher built with Python, Flask, and OpenAI GPT.
 git clone https://github.com/Udayuk19/JobMatch-AI.git
 cd JobMatch-AI
 pip install -r requirements.txt
+
+
+Create a .env file with:
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxx
+
+Then run:
+python app.py
+
+Go to http://localhost:5000
+
